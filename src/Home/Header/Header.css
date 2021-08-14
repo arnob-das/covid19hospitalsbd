@@ -1,0 +1,11 @@
+.header-card{
+    height:275px;
+    background-color:#7380F2;
+    height: 150px;
+    width: 100%;
+    border-radius: 15px;
+    color: #fff;
+}
+.header-card h3{
+    padding-left: 15px;
+}
