@@ -3,7 +3,7 @@
     background-color:#7380F2;
     height: 150px;
     width: 100%;
-    border-radius: 15px;
+    border-bottom-right-radius: 80px;
     color: #fff;
 }
 .header-card h3{

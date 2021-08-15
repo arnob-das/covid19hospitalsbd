@@ -13,23 +13,23 @@ const AllBeds = () => {
     console.log(allBedsNumbers)
     return (
         <div>
-            <div className="allBeds-row-1">
+            <div className="allBeds-row-1 justify-content-center">
                 <div className="items">
-                    <h4>General Beds</h4>
+                    <p>General Beds</p>
                     <h3>{allBedsNumbers.gb}</h3>
                 </div>
                 <div className="items">
-                    <h4>Icu Beds</h4>
+                    <p>Icu Beds</p>
                     <h3>{allBedsNumbers.icu}</h3>
                 </div>
             </div>
-            <div className="allBeds-row-2">
+            <div className="allBeds-row-2 justify-content-center">
                 <div className="items">
-                    <h4>High Flow Nasal Canula Beds</h4>
+                    <p>High Flow Nasal Canula Beds</p>
                     <h3>{allBedsNumbers.hfn}</h3>
                 </div>
                 <div className="items">
-                    <h4>High Dependency Unit Beds</h4>
+                    <p>High Dependency Unit Beds</p>
                     <h3>{allBedsNumbers.hdu}</h3>
                 </div>
             </div>

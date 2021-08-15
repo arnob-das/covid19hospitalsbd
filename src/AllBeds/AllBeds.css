@@ -1,12 +1,13 @@
-.allBeds-row-1{
+.allBeds-row-1, .allBeds-row-2{
     display:grid;
     row-gap: 1px;
     column-gap: 1px;
     grid-template-columns: 2fr 2fr;
+    font-size: 20px;
+    padding: 10px;
 }
-.allBeds-row-2{
-    display:grid;
-    row-gap: 1px;
-    column-gap: 1px;
-    grid-template-columns: 2fr 2fr;
+
+.allBeds-row-1 p, .allBeds-row-2 p{
+    margin-bottom: 0px;
+    font-size: 15px;
 }
