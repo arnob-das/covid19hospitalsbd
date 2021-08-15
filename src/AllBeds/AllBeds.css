@@ -1,0 +1,12 @@
+.allBeds-row-1{
+    display:grid;
+    row-gap: 1px;
+    column-gap: 1px;
+    grid-template-columns: 2fr 2fr;
+}
+.allBeds-row-2{
+    display:grid;
+    row-gap: 1px;
+    column-gap: 1px;
+    grid-template-columns: 2fr 2fr;
+}

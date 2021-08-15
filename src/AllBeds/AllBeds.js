@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import New from '../New/New';
-
+import './AllBeds.css'
 const AllBeds = () => {
-    // declare state for all beds numbers
+    // declared state for all beds numbers
     const [allBedsNumbers, setAllBedsNumbers] = useState([])
 
     // api fetching for all bed numbers
@@ -13,24 +12,27 @@ const AllBeds = () => {
     }, [])
     console.log(allBedsNumbers)
     return (
-        <div className="row">
-            <div className="col-sm-6">
-                <h1>{allBedsNumbers.gb}</h1>
+        <div>
+            <div className="allBeds-row-1">
+                <div className="items">
+                    <h4>General Beds</h4>
+                    <h3>{allBedsNumbers.gb}</h3>
+                </div>
+                <div className="items">
+                    <h4>Icu Beds</h4>
+                    <h3>{allBedsNumbers.icu}</h3>
+                </div>
             </div>
-
-            <div className="col-sm-6">
-                <h1>{allBedsNumbers.hfn}</h1>
+            <div className="allBeds-row-2">
+                <div className="items">
+                    <h4>High Flow Nasal Canula Beds</h4>
+                    <h3>{allBedsNumbers.hfn}</h3>
+                </div>
+                <div className="items">
+                    <h4>High Dependency Unit Beds</h4>
+                    <h3>{allBedsNumbers.hdu}</h3>
+                </div>
             </div>
-
-            <div className="col-sm-6">
-                <h1>{allBedsNumbers.icu}</h1>
-            </div>
-
-            <div className="col-sm-6">
-                <h1>{allBedsNumbers.hdu}</h1>
-            </div>
-
-            <New bed={allBedsNumbers.gb}></New>
         </div>
     );
 };
