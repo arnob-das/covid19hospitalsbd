@@ -39,7 +39,7 @@ const Hospitals = () => {
             <h1>This is Hospital Page</h1>
             <h2>{searchInput}</h2>
             <input onChange={handleInputChange} type="text" />
-            {searchResult.hospitals?.data.map(data => <li>{data.name}</li>)}
+            {searchResult.hospitals?.data?.map(data => <li key={data.id}>{data.name}</li>)}
         </div>
     );
 };
