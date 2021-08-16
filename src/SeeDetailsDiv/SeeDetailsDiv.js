@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';
 const SeeDetailsDiv = () => {
     return (
@@ -9,7 +9,7 @@ const SeeDetailsDiv = () => {
                 <p>Hospitals Details</p>
             </div>
             <div>
-                <Link to="/hospitals"><FontAwesomeIcon icon={faCoffee} /></Link>
+                <Link to="/hospitals"><FontAwesomeIcon icon={faArrowRight} /></Link>
             </div>
         </div>
     );
