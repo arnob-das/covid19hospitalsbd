@@ -7,19 +7,23 @@ import {
 } from "react-router-dom";
 import Home from './Home/Home/Home';
 import Hospitals from './Hospitals/Hospitals';
+import HospitalsDetails from './HospitalsDetails/HospitalsDetails';
 function App() {
-  
+
   return (
-   <Router>
-     <Switch>
-       <Route exact path="/">
-         <Home></Home>
-       </Route>
-       <Route path="/hospitals">
-         <Hospitals></Hospitals>
-       </Route>
-     </Switch>
-   </Router>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <Home></Home>
+        </Route>
+        <Route path="/hospitals">
+          <Hospitals></Hospitals>
+        </Route>
+        <Route path="/hospitalsDetails/:hospitalId">
+          <HospitalsDetails></HospitalsDetails>
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
