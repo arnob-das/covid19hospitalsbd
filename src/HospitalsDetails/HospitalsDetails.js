@@ -4,14 +4,13 @@ import { useParams } from 'react-router-dom';
 const HospitalsDetails = () => {
     const {hospitalId} = useParams();
     const [singleHospitalsInfo, setSingleHospitalsInfo] = useState([])
-    console.log(singleHospitalsInfo);
+    // console.log(singleHospitalsInfo);
 
     useEffect(() => {
         fetch(`https://api2.covidhospitalsbd.com/api/hospital/${hospitalId}`)
         .then(res => res.json())
         .then (data => setSingleHospitalsInfo(data))
     }, [])
-    console.log(singleHospitalsInfo?.phone_number)
     return (
         <div className="container">
            <h1>{singleHospitalsInfo.name}</h1>

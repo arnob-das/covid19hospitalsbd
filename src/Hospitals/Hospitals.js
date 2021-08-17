@@ -3,45 +3,43 @@ import { Link } from 'react-router-dom';
 
 const Hospitals = () => {
     // available hospitals url
-    let hospitalsUrl = 'https://api2.covidhospitalsbd.com/api'
+    let hospitalsUrl = 'https://api2.covidhospitalsbd.com/api/available-hospitals'
 
     //state declared to store data in search-input, search-result state
     const [searchInput = '', setSearchInput] = useState()
-    const [pageNumber = 1, setPageNumber] = useState()
-    const [newSearchResult, setNewSearchResult] = useState()
     const [searchResult, setSearchResult] = useState([])
-
-    const pageNumberNow = (searchResult.hospitals?.current_page)
-
+    const [pageNumber = 1, setPageNumber] = useState()
 
     //function to handle text input to set it in search-input state
     const handleInputChange = event => {
         setSearchInput(event.target.value)
     }
 
-    // // if search input is not empty
-    // if (searchInput !== "") {
-    //     // url for search input
-    //     hospitalsUrl = `${hospitalsUrl}/available-hospitals?search=${searchInput}`
-    //     // console.log(hospitalsUrl)
-    // }
-    // // search input equals to empty
-    // else {
-    //     // url for available hospitals
-    //     hospitalsUrl = `${hospitalsUrl}/available-hospitals`
-    //     console.log(hospitalsUrl)
-    // }
+    //current Page Number
+    const currentPageNumber = (searchResult.hospitals?.current_page)
 
-    //loadMore functon for button click
+    // if search input is not empty
+    if (searchInput !== "") {
+        // url for search input
+        hospitalsUrl = `${hospitalsUrl}?search=${searchInput}&&page=${pageNumber}`
+        // console.log(hospitalsUrl)
+    }
+    // search input equals to empty
+    else {
+        // url for available hospitals
+        hospitalsUrl = `${hospitalsUrl}?page=${pageNumber}`
+    }
+
+    //loadMore functon to increase page number by button clicking
     const loadMore = () => {
-        if (pageNumber >= (searchResult.hospitals?.total)/10) {
+        if (pageNumber >= (parseInt(searchResult.hospitals?.total) / 10)) {
             window.alert('No More Pages Available')
         } else {
             setPageNumber(pageNumber + 1)
         }
     }
 
-    //loadMore functon for button click
+    //loadLess functon to decrease page number by button clicking
     const loadLess = () => {
         if (pageNumber === 1) {
             window.alert('page number 1')
@@ -50,22 +48,23 @@ const Hospitals = () => {
             setPageNumber(pageNumber - 1)
         }
     }
-
+    console.log(hospitalsUrl)
+    console.log(searchResult.hospitals?.total)
     //fetching data from api
     useEffect(() => {
-        fetch(`${hospitalsUrl}/available-hospitals?page=${pageNumber}`)
+        // fetch(`${hospitalsUrl}?search=bogura?page=${pageNumber}`)
+        fetch(hospitalsUrl)
             .then(res => res.json())
             .then(data => setSearchResult(data))
-    }, [pageNumber])
+    }, [hospitalsUrl])
 
     console.log(searchResult)
-    console.log(searchResult.hospitals?.total)
     return (
         <div className="container">
             <h1>This is Hospital Page</h1>
             <h2>{searchInput}</h2>
             <input onChange={handleInputChange} type="text" />
-            <h3>Page No: {pageNumberNow}</h3>
+            <h3>Page No: {currentPageNumber}</h3>
             {searchResult.hospitals?.data?.map(data =>
                 <div key={data.id}>
                     <h3><Link className="text-danger" style={{ textDecoration: 'none' }} to={`/hospitalsDetails/${data.id}`}>{data.name}</Link></h3>
