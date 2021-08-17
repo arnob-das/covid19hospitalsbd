@@ -10,7 +10,6 @@ const AllBeds = () => {
             .then(response => response.json())
             .then(data => setAllBedsNumbers(data));
     }, [])
-    console.log(allBedsNumbers)
     return (
         <div>
             <div className="allBeds-row-1 justify-content-center">
