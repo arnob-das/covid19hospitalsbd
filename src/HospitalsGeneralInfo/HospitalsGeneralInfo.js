@@ -5,7 +5,7 @@ const HospitalsGeneralInfo = (props) => {
     const data = props.data
     return (
         <div className="card container mt-3">
-            <div key={data.id}>
+            <div>
                 <h3>
                     <Link className="text-danger" style={{ textDecoration: 'none' }} to={`/hospitalsDetails/${data.id}`}>
                         {data.name}

@@ -54,12 +54,13 @@ const Hospitals = () => {
             .then(data => setSearchResult(data))
     }, [hospitalsUrl])
 
+    // search results data
+    const searchResultData = searchResult.hospitals?.data
+    // search results length
+    const searchResultLength = searchResultData?.length
     //current Page Number
     const currentPageNumber = (searchResult.hospitals?.current_page)
-    // search results length
-    const searchResultLength = searchResult.hospitals?.data?.length
-    // search result data
-    const searchResultData = searchResult.hospitals?.data
+
 
     return (
         <div className="container mt-2">
