@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import HospitalsGeneralInfo from '../HospitalsGeneralInfo/HospitalsGeneralInfo';
+import Spinner from '../Spinner/Spinner';
 
 const Hospitals = () => {
     // available hospitals url
@@ -15,14 +16,10 @@ const Hospitals = () => {
         setSearchInput(event.target.value)
     }
 
-    //current Page Number
-    const currentPageNumber = (searchResult.hospitals?.current_page)
-
     // if search input is not empty
     if (searchInput !== "") {
         // url for search input
         hospitalsUrl = `${hospitalsUrl}?search=${searchInput}&&page=${pageNumber}`
-        // console.log(hospitalsUrl)
     }
     // search input equals to empty
     else {
@@ -30,10 +27,12 @@ const Hospitals = () => {
         hospitalsUrl = `${hospitalsUrl}?page=${pageNumber}`
     }
 
+    let totalPageNumber = (parseInt(searchResult.hospitals?.total) / 10) + 1
+
     //loadMore functon to increase page number by button clicking
     const loadMore = () => {
-        if (pageNumber >= (parseInt(searchResult.hospitals?.total) / 10)) {
-            window.alert('No More Pages Available')
+        if (pageNumber >= (totalPageNumber - 1)) {
+            window.alert('This is the last page')
         } else {
             setPageNumber(pageNumber + 1)
         }
@@ -42,41 +41,45 @@ const Hospitals = () => {
     //loadLess functon to decrease page number by button clicking
     const loadLess = () => {
         if (pageNumber === 1) {
-            window.alert('page number 1')
+            window.alert('This is the first page')
         }
         else {
             setPageNumber(pageNumber - 1)
         }
     }
-    console.log(hospitalsUrl)
-    console.log(searchResult.hospitals?.total)
     //fetching data from api
     useEffect(() => {
-        // fetch(`${hospitalsUrl}?search=bogura?page=${pageNumber}`)
         fetch(hospitalsUrl)
             .then(res => res.json())
             .then(data => setSearchResult(data))
     }, [hospitalsUrl])
 
-    console.log(searchResult)
+    //current Page Number
+    const currentPageNumber = (searchResult.hospitals?.current_page)
+    // search results length
+    const searchResultLength = searchResult.hospitals?.data?.length
+    // search result data
+    const searchResultData = searchResult.hospitals?.data
+
     return (
-        <div className="container">
-            <h1>This is Hospital Page</h1>
-            <h2>{searchInput}</h2>
-            <input onChange={handleInputChange} type="text" />
-            <h3>Page No: {currentPageNumber}</h3>
-            {searchResult.hospitals?.data?.map(data =>
-                <div key={data.id}>
-                    <h3><Link className="text-danger" style={{ textDecoration: 'none' }} to={`/hospitalsDetails/${data.id}`}>{data.name}</Link></h3>
-                    <p>general_beds_available {data.general_beds_available}</p>
-                    <p>icu_beds_available {data.icu_beds_available}</p>
-                </div>)}
-            <div className="row d-flex justify-content-center align-items-center">
-                <button style={{ width: '150px', bottom: '0px', left: '0px', position: 'fixed' }} className="btn btn-primary mx-5" onClick={loadMore}>load more</button>
-                <button style={{ width: '150px', bottom: '0px', right: '0px', position: 'fixed' }} className="btn btn-danger mx-5" onClick={loadLess}>load Less</button>
-            </div>
+        <div className="container mt-2">
+            {searchResultLength === 0 ? <Spinner></Spinner> :
+                <div>
+                    <input className="form-control" placeholder="Search By District or Hospital Name" style={{ width: '100%' }} onChange={handleInputChange} type="text" />
+                    <h3>Page No: {currentPageNumber}</h3>
+
+                    {searchResultData?.map(data =>
+                        <HospitalsGeneralInfo key={data.id} data={data}></HospitalsGeneralInfo>)
+                    }
+                    <div className="d-flex justify-content-around">
+                        <button style={{ width: '150px', bottom: '0px' }} className="btn btn-primary my-2" onClick={loadMore}>load more</button>
+                        <button style={{ width: '150px', bottom: '0px' }} className="btn btn-danger my-2" onClick={loadLess}>load Less</button>
+                    </div>
+                </div>
+            }
         </div>
     );
 };
 
 export default Hospitals;
+
