@@ -19,7 +19,7 @@ function Gmap(props) {
     }
     return (
         <LoadScript
-            googleMapsApiKey="AIzaSyC69fb5gYqkHysLxtGYDeEtLe5E87sqJGs"
+            googleMapsApiKey="api key"
         >
             <GoogleMap
                 mapContainerStyle={containerStyle}

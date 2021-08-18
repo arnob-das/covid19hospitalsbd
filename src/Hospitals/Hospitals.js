@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import HospitalsGeneralInfo from '../HospitalsGeneralInfo/HospitalsGeneralInfo';
 import Spinner from '../Spinner/Spinner';
+import './Hospitals.css'
 
 const Hospitals = () => {
     // available hospitals url
@@ -60,13 +61,18 @@ const Hospitals = () => {
     const searchResultLength = searchResultData?.length
     //current Page Number
     const currentPageNumber = (searchResult.hospitals?.current_page)
+    
+    let searchInputClass = 'form-control input-search'
+    if (pageNumber > 1) {
+        searchInputClass="form-control input-search no-display"
+    }
 
 
     return (
         <div className="container mt-2">
             {searchResultLength === 0 ? <Spinner></Spinner> :
                 <div>
-                    <input className="form-control" placeholder="Search By District or Hospital Name" style={{ width: '100%' }} onChange={handleInputChange} type="text" />
+                    <input className={searchInputClass} placeholder="Search By District or Hospital Name" style={{ width: '100%' }} onChange={handleInputChange} type="text" />
                     <h3>Page No: {currentPageNumber}</h3>
 
                     {searchResultData?.map(data =>
@@ -74,7 +80,7 @@ const Hospitals = () => {
                     }
                     <div className="d-flex justify-content-around">
                         <button style={{ width: '150px', bottom: '0px' }} className="btn btn-primary my-2" onClick={loadMore}>load more</button>
-                        <button style={{ width: '150px', bottom: '0px' }} className="btn btn-danger my-2" onClick={loadLess}>load Less</button>
+                        <button style={{ width: '150px', bottom: '0px'}} className="btn btn-danger my-2" onClick={loadLess}>load Less</button>
                     </div>
                 </div>
             }
@@ -83,4 +89,3 @@ const Hospitals = () => {
 };
 
 export default Hospitals;
-
