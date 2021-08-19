@@ -11,6 +11,9 @@ const HospitalsDetails = () => {
             .then(res => res.json())
             .then(data => setSingleHospitalsInfo(data))
     }, [])
+
+    const telephoneLink = `tel:${singleHospitalsInfo.phone_number}`
+    const directionLink = `https://www.google.com/maps/search/?api=1&query=${singleHospitalsInfo.latitude}%${singleHospitalsInfo.longitude}&query_place_id=${singleHospitalsInfo.google_place_id}`
     return (
         <div className="container">
             <h1>{singleHospitalsInfo.name}</h1>
@@ -26,6 +29,10 @@ const HospitalsDetails = () => {
             <p>oxygen_used_hfnc: {singleHospitalsInfo.oxygen_used_hfnc}</p>
             <p>Latitude: {singleHospitalsInfo.latitude}</p>
             <p>Longitude: {singleHospitalsInfo.longitude}</p>
+
+            <a className="btn btn-primary"href={telephoneLink}> Make A Call </a>
+            <a className="btn btn-primary"href={directionLink} target="_blank">Get Direction</a>
+            
             <Gmap latitude={singleHospitalsInfo.latitude} longitude={singleHospitalsInfo.longitude}></Gmap>
         </div>
     );
