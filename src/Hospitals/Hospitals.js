@@ -37,8 +37,10 @@ const Hospitals = () => {
 
     // hide search input text field if current page number is greater than 1
     let searchInputClass = 'form-control input-search'
+    let backButtonClass = 'back-button'
     if (pageNumber > 1) {
         searchInputClass = "form-control input-search no-display"
+        backButtonClass = 'back-button no-display'
     }
 
     //loadMore functon to increase page number by clicking button
@@ -71,38 +73,40 @@ const Hospitals = () => {
         <div className="container mt-2">
             {searchResultLength === 0 ? <Spinner /> :
                 <div>
-                    <Link className="back-button" to='/'>
+                    <Link className={backButtonClass} to='/'>
                         <FontAwesomeIcon icon={faArrowLeft} style={{ position: 'absolute', }} />
                     </Link>
                     <input className={searchInputClass} placeholder="Search By District or Hospital Name" onChange={handleInputChange} type="text" />
-                    <h3>Page No: {currentPageNumber}</h3>
+                    {/* <h3>Page No: {currentPageNumber}</h3> */}
 
                     {searchResultData?.map(data =>
                         <HospitalsGeneralInfo key={data.id} data={data}></HospitalsGeneralInfo>)
                     }
-                    <div className="d-flex justify-content-around">
+                    {/* <div className="d-flex justify-content-around">
                         <button style={{ width: '150px', bottom: '0px' }} className="btn btn-primary my-2" onClick={loadMore}>load more</button>
                         <button style={{ width: '150px', bottom: '0px' }} className="btn btn-danger my-2" onClick={loadLess}>load Less</button>
+                    </div> */}
+                    <div>
+                        <nav aria-label="Page navigation example">
+                            <ul className="pagination d-flex justify-content-center mt-3">
+                                <li className="page-item">
+                                    <a className="page-link" onClick={loadLess} aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                        <span className="sr-only">Previous</span>
+                                    </a>
+                                </li>
+                                <li className="page-item">
+                                    <a className="page-link" href="#">{currentPageNumber}</a>
+                                </li>
+                                <li className="page-item" >
+                                    <a className="page-link" onClick={loadMore} aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                        <span className="sr-only">Next</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
-                    <nav aria-label="Page navigation example">
-                        <ul className="pagination">
-                            <li className="page-item">
-                                <a className="page-link" href="#" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                    <span className="sr-only">Previous</span>
-                                </a>
-                            </li>
-                            <li className="page-item"><a className="page-link" href="#">1</a></li>
-                            <li className="page-item"><a className="page-link" href="#">2</a></li>
-                            <li className="page-item"><a className="page-link" href="#">3</a></li>
-                            <li className="page-item">
-                                <a className="page-link" href="#" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                    <span className="sr-only">Next</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
                 </div>
             }
         </div>
