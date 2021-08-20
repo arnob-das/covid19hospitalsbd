@@ -1,7 +1,14 @@
 .header-card{
     width: 100%;
     height: auto;
-    background-color: #3A43B7;
+    background-color:#777ed2;
+    /* background-color: #3A43B7; */
     color: #fff;
     padding-bottom: 7%;
+}
+
+@media (min-width: 1200px){
+    .header-card{
+        padding-bottom: 2%;
+    }
 }

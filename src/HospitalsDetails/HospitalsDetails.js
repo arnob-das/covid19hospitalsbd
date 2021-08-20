@@ -61,8 +61,8 @@ const HospitalsDetails = () => {
                     <thead>
                         <tr>
                             <th className="text-muted" scope="col">Bed Type</th>
-                            <th className="text-muted" scope="col">Available</th>
-                            <th className="text-muted" scope="col">Total</th>
+                            <th className="text-muted text-align-center" scope="col">Available</th>
+                            <th className="text-muted text-align-center" scope="col">Total</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -96,7 +96,7 @@ const HospitalsDetails = () => {
                     <thead>
                         <tr>
                             <th className="text-muted" scope="col">Oxygen Equipment</th>
-                            <th className="text-muted" scope="col">Available</th>
+                            <th className="text-muted text-align-center" scope="col">Available</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -121,7 +121,7 @@ const HospitalsDetails = () => {
             </div>
 
             <div className="gmap container">
-                <div className="div-sub bed-detail-div my-3">Google Map</div>
+                <div className="div-sub bed-detail-div my-4">Google Map</div>
                 <Gmap
                     latitude={singleHospitalsInfo.latitude}
                     longitude={singleHospitalsInfo.longitude}

@@ -4,7 +4,7 @@ import './AllBeds.css'
 const AllBeds = () => {
     // declared state for all beds numbers
     const [allBedsNumbers, setAllBedsNumbers] = useState({})
-    const {gb, icu, hfn, hdu} = allBedsNumbers
+    const { gb, icu, hfn, hdu } = allBedsNumbers
 
     // api fetching for all bed numbers
     useEffect(() => {
@@ -12,9 +12,10 @@ const AllBeds = () => {
             .then(response => response.json())
             .then(data => setAllBedsNumbers(data));
     }, [])
+
     return (
-        <div>
-            <p className="container currently-available">Currently available</p>
+        <div className="container">
+            <p className="currently-available">Currently available</p>
             <div className="allBeds-row-1 justify-content-center">
                 <div className="items gb">
                     <p>General Beds</p>

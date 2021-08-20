@@ -9,7 +9,7 @@
   border-bottom-right-radius: 30px;
 }
 .hospital-basic-info-name {
-  font-size: 20px;
+  font-size: 21px;
   font-weight: 700;
 }
 .hospital-basic-info i {
@@ -21,4 +21,9 @@
 }
 .div-sub {
   margin-left: 5px;
+}
+@media (min-width: 640px) {
+  .text-align-center{
+    text-align: center;
+  }
 }
