@@ -12,6 +12,9 @@ const HospitalsDetails = () => {
         name,
         district,
         address,
+        latitude,
+        longitude,
+        google_place_id,
         phone_number,
         general_beds_available,
         icu_beds_available,
@@ -27,6 +30,8 @@ const HospitalsDetails = () => {
         oxygen_total_hfnc,
     } = singleHospitalsInfo;
 
+    console.log(latitude)
+
     useEffect(() => {
         fetch(`https://api2.covidhospitalsbd.com/api/hospital/${hospitalId}`)
             .then((res) => res.json())
@@ -35,9 +40,8 @@ const HospitalsDetails = () => {
 
     // telephone link
     const telephoneLink = `tel:${phone_number}`;
-    // google maps direction link
+    // google maps direction link by laitude and longtitude
     const directionLink = `https://www.google.com/maps/search/?api=1&query=${singleHospitalsInfo.latitude}%${singleHospitalsInfo.longitude}&query_place_id=${singleHospitalsInfo.google_place_id}`;
-
     return (
         <div className="hospital-detail">
             <div className="hospital-basic-info container pt-2">
@@ -128,7 +132,7 @@ const HospitalsDetails = () => {
                 ></Gmap>
             </div>
             <div className="contact-button d-flex justify-content-between container my-4">
-                <Link className="btn btn-outline-primary" style={{ width: '150px' }} href={directionLink}>Direction</Link>
+                <Link to={directionLink} className="btn btn-outline-primary" style={{ width: '150px' }}>Direction</Link>
                 <a className="btn btn-outline-primary" style={{ width: '150px' }} href={telephoneLink}>Call Hospital</a>
             </div>
         </div>
