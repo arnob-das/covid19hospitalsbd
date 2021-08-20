@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Gmap from "../Gmap/Gmap";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./HospitalsDetails.css";
 
 const HospitalsDetails = () => {
@@ -40,46 +38,51 @@ const HospitalsDetails = () => {
                 <p className="hospital-basic-info-name">{name}</p>
                 <p>District: {district}</p>
                 <p className="mt-3">
-                    <i class="fas fa-phone-alt" aria-hidden="true"></i>
+                    <i className="fas fa-phone-alt" aria-hidden="true"></i>
                     {phone_number}
                 </p>
                 <p>
-                    <i class="fas fa-globe-americas" aria-hidden="true"></i>
+                    <i className="fas fa-globe-americas" aria-hidden="true"></i>
                     {address}
                 </p>
             </div>
 
-            <h2>{singleHospitalsInfo.district}</h2>
-            <p>General Beds Available: {general_beds_available}</p>
-            <p>ICU Beds Available: {singleHospitalsInfo.icu_beds_available}</p>
-            <p>
-                High Flow Nasal Canula Beds Available:{" "}
-                {singleHospitalsInfo.hfn_beds_occupied}
-            </p>
-            <p>
-                High Dependency Units Available:{" "}
-                {singleHospitalsInfo.hdu_beds_occupied}
-            </p>
-            <p>Phone Number: {singleHospitalsInfo.phone_number}</p>
-            <p>
-                Oxygen total cylinder: {singleHospitalsInfo.oxygen_total_cylinder}
-            </p>
-            <p>oxygen_total_hfnc: {singleHospitalsInfo.oxygen_total_hfnc}</p>
-            <p>
-                oxygen_total_supply_point:{" "}
-                {singleHospitalsInfo.oxygen_total_supply_point}
-            </p>
-            <p>oxygen_used_hfnc: {singleHospitalsInfo.oxygen_used_hfnc}</p>
-            <p>Latitude: {singleHospitalsInfo.latitude}</p>
-            <p>Longitude: {singleHospitalsInfo.longitude}</p>
+            <div className="bed-oxygen-detail container">
+                <p className="mt-5 bed-detail-div">Bed Information</p>
 
-            <a className="btn btn-primary" href={telephoneLink}>
-                {" "}
-                Make A Call{" "}
-            </a>
-            <a className="btn btn-primary" href={directionLink} target="_blank">
-                Get Direction
-            </a>
+                {/* table is here */}
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Bed Type</th>
+                            <th scope="col">Available</th>
+                            <th scope="col">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ICU</td>
+                            <td className="text-center text-success fw-bold">{icu_beds_available}</td>
+                            <td className="text-center">{icu_beds}</td>
+                        </tr>
+                        <tr>
+                            <td>High flow nasal canula Beds	</td>
+                            <td className="text-center text-success fw-bold">{hfn_beds_available}</td>
+                            <td className="text-center">{icu_beds}</td>
+                        </tr>
+                        <tr>
+                            <td>High Dependency Unit</td>
+                            <td className="text-center text-success fw-bold">{hdu_beds_available}</td>
+                            <td className="text-center">{hdu_beds}</td>
+                        </tr>
+                        <tr>
+                            <td>General Beds</td>
+                            <td className="text-center text-success fw-bold">{general_beds_available}</td>
+                            <td className="text-center">{general_beds}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
             <Gmap
                 latitude={singleHospitalsInfo.latitude}
