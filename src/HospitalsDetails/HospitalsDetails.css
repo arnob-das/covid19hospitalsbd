@@ -1,27 +1,24 @@
-.hospital-detail{
-    background: #fff;
+.hospital-detail {
+  background: #fff;
 }
 .hospital-basic-info {
-    height: 190px;
-    width: 100%;
-    background-color: #dce0e2;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
+  height: 200px;
+  width: 100%;
+  background-color: #dce0e2;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
 }
-.hospital-basic-info-name{
-    font-size: 20px;
-    font-weight: 700;
+.hospital-basic-info-name {
+  font-size: 20px;
+  font-weight: 700;
 }
-.hospital-basic-info i{
-    margin-right: 10px;
+.hospital-basic-info i {
+  margin-right: 10px;
 }
-.bed-oxygen-detail{
-
+.bed-detail-div {
+  font-size: 16px;
+  font-weight: 700;
 }
-.bed-detail-div{
-    font-size: 16px;
-    font-weight: 700;
-}
-.div-sub{
-    margin-left: 5px;
+.div-sub {
+  margin-left: 5px;
 }

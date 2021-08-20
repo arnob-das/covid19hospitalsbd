@@ -1,13 +1,38 @@
 .allBeds-row-1, .allBeds-row-2{
     display:grid;
-    row-gap: 1px;
     column-gap: 1px;
     grid-template-columns: 2fr 2fr;
     font-size: 20px;
-    padding: 10px;
 }
 
 .allBeds-row-1 p, .allBeds-row-2 p{
     margin-bottom: 0px;
     font-size: 15px;
+}
+
+.items{
+    margin: 5px 20px;
+    padding: 3px 4px;
+    height: 90px;
+    border-radius: 10px;
+}
+.currently-available{
+    font-size: 16px;
+}
+.icu{
+    background-color: #F9DEE6;
+    border: 2px solid #ffaac3;
+}
+
+.gb{
+    background-color: #DCFBEE;
+    border: 2px solid #b1ffde
+}
+.hdu{
+    background-color: #FEEFCF;
+    border: 2px solid #fcd990;
+}
+.hfn{
+    background-color: #E3E6FF;
+    border: 2px solid #a3acfc;
 }

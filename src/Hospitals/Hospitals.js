@@ -85,19 +85,19 @@ const Hospitals = () => {
                         <nav aria-label="Page navigation example">
                             <ul className="pagination d-flex justify-content-center mt-3">
                                 <li className="page-item">
-                                    <a className="page-link" onClick={loadLess} aria-label="Previous">
+                                    <Link className="page-link" onClick={loadLess} aria-label="Previous">
                                         <span aria-hidden="true">&laquo;</span>
                                         <span className="sr-only">Previous</span>
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="page-item">
-                                    <a className="page-link" href="#">{currentPageNumber}</a>
+                                    <p className="page-link" href="#">{currentPageNumber}</p>
                                 </li>
                                 <li className="page-item" >
-                                    <a className="page-link" onClick={loadMore} aria-label="Next">
+                                    <Link className="page-link" onClick={loadMore} aria-label="Next">
                                         <span aria-hidden="true">&raquo;</span>
                                         <span className="sr-only">Next</span>
-                                    </a>
+                                    </Link>
                                 </li>
                             </ul>
                         </nav>

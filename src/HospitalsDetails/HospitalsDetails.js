@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Gmap from "../Gmap/Gmap";
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import "./HospitalsDetails.css";
 
 const HospitalsDetails = () => {
@@ -126,8 +128,8 @@ const HospitalsDetails = () => {
                 ></Gmap>
             </div>
             <div className="contact-button d-flex justify-content-between container my-4">
-                <a className="btn btn-outline-primary" style={{width: '150px'}} href={directionLink}>Direction</a>
-                <a className="btn btn-outline-primary" style={{width: '150px'}} href={telephoneLink}>Call Hospital</a>
+                <Link className="btn btn-outline-primary" style={{ width: '150px' }} href={directionLink}>Direction</Link>
+                <a className="btn btn-outline-primary" style={{ width: '150px' }} href={telephoneLink}>Call Hospital</a>
             </div>
         </div>
     );

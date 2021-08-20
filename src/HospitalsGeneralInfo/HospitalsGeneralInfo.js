@@ -15,8 +15,6 @@ const HospitalsGeneralInfo = (props) => {
     // number of total beds
     const totalBeds = general_beds + icu_beds + hdu_beds + hfn_beds
 
-    console.log(updated_at)
-
     return (
         <Link className="hospital-general card container mt-3" style={{ textDecoration: 'none' }} to={`/hospitalsDetails/${id}`}>
             <div>

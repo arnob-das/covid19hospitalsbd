@@ -1,11 +1,7 @@
 .header-card{
-    height:275px;
-    background-color:#7380F2;
-    height: 150px;
     width: 100%;
-    border-bottom-right-radius: 80px;
+    height: auto;
+    background-color: #3A43B7;
     color: #fff;
-}
-.header-card h3{
-    padding-left: 15px;
+    padding-bottom: 7%;
 }

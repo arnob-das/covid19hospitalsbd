@@ -1,0 +1,7 @@
+.seeDetailsDiv{
+    font-size: 20px;
+}
+.seeDetailsDiv p,
+.seeDetailsDiv Link{
+    font-weight: bold;
+}

@@ -1,13 +1,22 @@
 import React from 'react';
 import Navbar from '../../NavBar/Navbar';
 import './Header.css'
+import './Header.css'
+
 const Header = () => {
     return (
         <div>
-            <div className="header-card">
+
+            <div className="header-card container">
                 <Navbar></Navbar>
-                <h2 className="p-3">Welcome To</h2>
-                <h3 className="pt-2">Covid19 Hospitals Info</h3>
+                <div>
+                    <h5>Welcome to</h5>
+                    <h2>Covid19 Hospital's Info</h2>
+                    <p>COVID Dedicated Hospital's Information Bangladesh</p>
+                </div>
+                <div>
+
+                </div>
             </div>
         </div>
     );
