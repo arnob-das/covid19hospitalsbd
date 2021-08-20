@@ -70,22 +70,17 @@ const Hospitals = () => {
     }, [hospitalsUrl])
 
     return (
-        <div className="container mt-2">
+        <div className="container mt-3">
             {searchResultLength === 0 ? <Spinner /> :
                 <div>
                     <Link className={backButtonClass} to='/'>
                         <FontAwesomeIcon icon={faArrowLeft} style={{ position: 'absolute', }} />
                     </Link>
                     <input className={searchInputClass} placeholder="Search By District or Hospital Name" onChange={handleInputChange} type="text" />
-                    {/* <h3>Page No: {currentPageNumber}</h3> */}
 
                     {searchResultData?.map(data =>
                         <HospitalsGeneralInfo key={data.id} data={data}></HospitalsGeneralInfo>)
                     }
-                    {/* <div className="d-flex justify-content-around">
-                        <button style={{ width: '150px', bottom: '0px' }} className="btn btn-primary my-2" onClick={loadMore}>load more</button>
-                        <button style={{ width: '150px', bottom: '0px' }} className="btn btn-danger my-2" onClick={loadLess}>load Less</button>
-                    </div> */}
                     <div>
                         <nav aria-label="Page navigation example">
                             <ul className="pagination d-flex justify-content-center mt-3">

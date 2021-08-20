@@ -1,0 +1,19 @@
+.hospital-basic-info {
+    height: 190px;
+    width: 100%;
+    background-color: #dddddd;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+.hospital-basic-info-name{
+    font-size: 18px;
+    font-weight: 700;
+}
+.hospital-basic-info i{
+    margin-right: 10px;
+}
+.bg-red{
+    height:100%;
+    width: 100%;
+    background: red;
+}

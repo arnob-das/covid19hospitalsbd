@@ -1,0 +1,21 @@
+.hospital-general{
+    color: #000;
+}
+.hospital-general h3{
+    font-size: 16px;
+}
+.hospital-general p{
+    font-size: 14px;
+}
+.available-beds-num{
+    font-weight: bold;
+}
+.beds-num-div{
+    margin-top: -5px;
+}
+.total-beds-num{
+    margin-left: 30px;
+}
+.hospital-general-name{
+    font-weight: 600;
+}

@@ -1,8 +1,6 @@
 .input-search{
     width: 100%;
-}
-.input-search::placeholder{
-    padding-left: 30px;
+    padding-left: 40px;
 }
 .no-display {
     display:none;
