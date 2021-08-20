@@ -19,6 +19,10 @@ const HospitalsDetails = () => {
         hfn_beds,
         hdu_beds,
         icu_beds,
+        oxygen_total_supply_point,
+        oxygen_total_concentrator,
+        oxygen_total_cylinder,
+        oxygen_total_hfnc,
     } = singleHospitalsInfo;
 
     useEffect(() => {
@@ -35,11 +39,11 @@ const HospitalsDetails = () => {
     return (
         <div className="hospital-detail">
             <div className="hospital-basic-info container pt-2">
-                <p className="hospital-basic-info-name">{name}</p>
+                <p className="hospital-basic-info-name mt-2">{name}</p>
                 <p>District: {district}</p>
                 <p className="mt-3">
                     <i className="fas fa-phone-alt" aria-hidden="true"></i>
-                    {phone_number}
+                    {phone_number ? phone_number : 'Not Available'}
                 </p>
                 <p>
                     <i className="fas fa-globe-americas" aria-hidden="true"></i>
@@ -48,15 +52,15 @@ const HospitalsDetails = () => {
             </div>
 
             <div className="bed-oxygen-detail container">
-                <p className="mt-5 bed-detail-div">Bed Information</p>
+                <p className="mt-5 bed-detail-div div-sub">Bed Information</p>
 
                 {/* table is here */}
                 <table className="table">
                     <thead>
                         <tr>
-                            <th scope="col">Bed Type</th>
-                            <th scope="col">Available</th>
-                            <th scope="col">Total</th>
+                            <th className="text-muted" scope="col">Bed Type</th>
+                            <th className="text-muted" scope="col">Available</th>
+                            <th className="text-muted" scope="col">Total</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -68,7 +72,7 @@ const HospitalsDetails = () => {
                         <tr>
                             <td>High flow nasal canula Beds	</td>
                             <td className="text-center text-success fw-bold">{hfn_beds_available}</td>
-                            <td className="text-center">{icu_beds}</td>
+                            <td className="text-center">{hfn_beds}</td>
                         </tr>
                         <tr>
                             <td>High Dependency Unit</td>
@@ -82,12 +86,49 @@ const HospitalsDetails = () => {
                         </tr>
                     </tbody>
                 </table>
+                {/* oxygen detail */}
+                <p className="mt-5 bed-detail-div div-sub">Oxygen information</p>
+
+                {/* table is here */}
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th className="text-muted" scope="col">Oxygen Equipment</th>
+                            <th className="text-muted" scope="col">Available</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Total bed with central oxygen supply point	</td>
+                            <td className="text-center text-success fw-bold">{oxygen_total_supply_point}</td>
+                        </tr>
+                        <tr>
+                            <td>Total oxygen concentrator available</td>
+                            <td className="text-center text-success fw-bold">{oxygen_total_concentrator}</td>
+                        </tr>
+                        <tr>
+                            <td>Total oxygen cylinder</td>
+                            <td className="text-center text-success fw-bold">{oxygen_total_cylinder}</td>
+                        </tr>
+                        <tr>
+                            <td>High flow nasal canula	</td>
+                            <td className="text-center text-success fw-bold">{oxygen_total_hfnc}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
 
-            <Gmap
-                latitude={singleHospitalsInfo.latitude}
-                longitude={singleHospitalsInfo.longitude}
-            ></Gmap>
+            <div className="gmap container">
+                <div className="div-sub bed-detail-div my-3">Google Map</div>
+                <Gmap
+                    latitude={singleHospitalsInfo.latitude}
+                    longitude={singleHospitalsInfo.longitude}
+                ></Gmap>
+            </div>
+            <div className="contact-button d-flex justify-content-between container my-4">
+                <a className="btn btn-outline-primary" style={{width: '150px'}} href={directionLink}>Direction</a>
+                <a className="btn btn-outline-primary" style={{width: '150px'}} href={telephoneLink}>Call Hospital</a>
+            </div>
         </div>
     );
 };

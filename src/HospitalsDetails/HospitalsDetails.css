@@ -9,7 +9,7 @@
     border-bottom-right-radius: 30px;
 }
 .hospital-basic-info-name{
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 700;
 }
 .hospital-basic-info i{
@@ -21,4 +21,7 @@
 .bed-detail-div{
     font-size: 16px;
     font-weight: 700;
+}
+.div-sub{
+    margin-left: 5px;
 }
