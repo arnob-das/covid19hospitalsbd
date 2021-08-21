@@ -15,7 +15,7 @@ const AllBeds = () => {
 
     return (
         <div className="container">
-            <p className="currently-available">Currently available</p>
+            <p className="currently-available">Currently Available Beds</p>
             <div className="allBeds-row-1 justify-content-center">
                 <div className="items gb">
                     <p>General Beds</p>

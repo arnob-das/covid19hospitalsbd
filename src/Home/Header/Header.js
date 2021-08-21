@@ -12,7 +12,7 @@ const Header = () => {
                 <div>
                     <h5>Welcome to</h5>
                     <h2>Covid19 Hospital's Info</h2>
-                    <p>COVID Dedicated Hospital's Information Bangladesh</p>
+                    <p>COVID19 Dedicated Hospital's Information Is Available Here</p>
                 </div>
                 <div>
 
