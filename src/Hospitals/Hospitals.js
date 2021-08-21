@@ -97,14 +97,14 @@ const Hospitals = () => {
                         <nav aria-label="Page navigation example">
                             <ul className="pagination d-flex justify-content-center mt-3">
                                 <li className="page-item">
-                                    <Link
+                                    <button
                                         className="page-link"
                                         onClick={loadLess}
                                         aria-label="Previous"
                                     >
                                         <span aria-hidden="true">&laquo;</span>
                                         <span className="sr-only">Previous</span>
-                                    </Link>
+                                    </button>
                                 </li>
                                 <li className="page-item">
                                     <p className="page-link" href="#">
@@ -112,14 +112,14 @@ const Hospitals = () => {
                                     </p>
                                 </li>
                                 <li className="page-item">
-                                    <Link
+                                    <button
                                         className="page-link"
                                         onClick={loadMore}
                                         aria-label="Next"
                                     >
                                         <span aria-hidden="true">&raquo;</span>
                                         <span className="sr-only">Next</span>
-                                    </Link>
+                                    </button>
                                 </li>
                             </ul>
                         </nav>
