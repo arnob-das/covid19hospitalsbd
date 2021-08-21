@@ -1,0 +1,36 @@
+{
+    "name": "covid19hospitals",
+    "short_name": "covid19hospitals",
+    "start_url": "/public/index.html",
+    "display":"standalone",
+    "background_color": "555",
+    "theme_color": "#777ED2",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "images/android-chrome-192*192.png",
+            "type": "image/png",
+            "sizes": "192*192"
+        },
+        {
+            "src": "images/android-chrome-512*512.png",
+            "type": "image/png",
+            "sizes": "512*512"
+        },
+        {
+            "src": "images/apple-touch-icon.png",
+            "type": "image/png",
+            "sizes": "180*180"
+        },
+        {
+            "src": "images/favicon16*16.png",
+            "type": "image/png",
+            "sizes": "16*16"
+        },
+        {
+            "src": "images/favicon32*32.png",
+            "type": "image/png",
+            "sizes": "32*32"
+        }
+    ]
+}

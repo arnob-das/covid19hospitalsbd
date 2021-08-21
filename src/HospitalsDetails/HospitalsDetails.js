@@ -132,7 +132,7 @@ const HospitalsDetails = () => {
                 ></Gmap>
             </div>
             <div className="contact-button d-flex justify-content-between container my-4">
-                <Link to={directionLink} className="btn btn-outline-primary" style={{ width: '150px' }}>Direction</Link>
+                <a href={directionLink} target="_blank" className="btn btn-outline-primary" style={{ width: '150px' }}>Direction</a>
                 <a className="btn btn-outline-primary" style={{ width: '150px' }} href={telephoneLink}>Call Hospital</a>
             </div>
         </div>
