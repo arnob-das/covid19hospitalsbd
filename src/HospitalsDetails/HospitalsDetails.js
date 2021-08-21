@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Gmap from "../Gmap/Gmap";
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import "./HospitalsDetails.css";
 
 const HospitalsDetails = () => {
@@ -30,8 +28,6 @@ const HospitalsDetails = () => {
         oxygen_total_hfnc,
     } = singleHospitalsInfo;
 
-    console.log(latitude)
-
     useEffect(() => {
         fetch(`https://api2.covidhospitalsbd.com/api/hospital/${hospitalId}`)
             .then((res) => res.json())
@@ -41,7 +37,7 @@ const HospitalsDetails = () => {
     // telephone link
     const telephoneLink = `tel:${phone_number}`;
     // google maps direction link by laitude and longtitude
-    const directionLink = `https://www.google.com/maps/search/?api=1&query=${singleHospitalsInfo.latitude}%${singleHospitalsInfo.longitude}&query_place_id=${singleHospitalsInfo.google_place_id}`;
+    const directionLink = `https://www.google.com/maps/search/?api=1&query=${latitude}%${longitude}&query_place_id=${google_place_id}`;
     return (
         <div className="hospital-detail">
             <div className="hospital-basic-info container pt-2">
