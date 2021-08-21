@@ -32,7 +32,7 @@ const HospitalsDetails = () => {
         fetch(`https://api2.covidhospitalsbd.com/api/hospital/${hospitalId}`)
             .then((res) => res.json())
             .then((data) => setSingleHospitalsInfo(data));
-    }, []);
+    });
 
     // telephone link
     const telephoneLink = `tel:${phone_number}`;
