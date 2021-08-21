@@ -1,11 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHospitalAlt, faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons'
 import './HospitalsGeneralInfo.css'
 
 const HospitalsGeneralInfo = (props) => {
-    const { id, name, district, updated_at } = props.data
+    const { id, name, district } = props.data
     // available beds data
     const { general_beds_available, icu_beds_available, hdu_beds_available, hfn_beds_available } = props.data
     // total beds data
