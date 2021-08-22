@@ -1,38 +1,47 @@
 import React from 'react'
-// import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
-// const containerStyle = {
-//     width: '100%',
-//     height: '300px'
-// };
+
+const containerStyle = {
+    width: '100%',
+    height: '300px'
+};
+
 
 function Gmap(props) {
     // const { latitude, longitude } = props;
 
-    // const location = {
-    //     lat: latitude,
-    //     lng: longitude
-    // };
+    console.log(props)
 
-    // const onLoad = (marker) => {
-    //     console.log('marker:', marker)
-    // }
+    const latitude1 = parseFloat(props.latitude)
+    const longitude1= parseFloat(props.longitude)
+
+    console.log(latitude1, longitude1)
+
+    const location = {
+        lat: latitude1,
+        lng: longitude1
+    };
+
+    const onLoad = (marker) => {
+        console.log("Marker:", marker)
+    }
     return (
-        // <LoadScript
-        //     googleMapsApiKey="api key"
-        // >
-        //     <GoogleMap
-        //         mapContainerStyle={containerStyle}
-        //         center={location}
-        //         zoom={10}
-        //     >
-        //         <Marker
-        //             onLoad={onLoad}
-        //             position={location}
-        //         />
-        //     </GoogleMap>
-        // </LoadScript>
-        <p className="mt-3">Google Map Api Key is not Valid</p>
+        <LoadScript
+        // api key is only for educational purpose
+            googleMapsApiKey=""
+        >
+            <GoogleMap
+                mapContainerStyle={containerStyle}
+                center={location}
+                zoom={15}
+            >
+                <Marker
+                    onLoad={onLoad}
+                    position={location}
+                />
+            </GoogleMap>
+        </LoadScript>
     )
 }
 

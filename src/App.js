@@ -7,6 +7,7 @@ import {
 import Home from './Home/Home/Home';
 import Hospitals from './Hospitals/Hospitals';
 import HospitalsDetails from './HospitalsDetails/HospitalsDetails';
+import Gmap from './Gmap/Gmap';
 function App() {
 
   return (
@@ -14,6 +15,9 @@ function App() {
       <Switch>
         <Route exact path="/">
           <Home></Home>
+        </Route>
+        <Route path="/gmap">
+          <Gmap></Gmap>
         </Route>
         <Route path="/hospitals">
           <Hospitals></Hospitals>
